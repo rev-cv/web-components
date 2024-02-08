@@ -1,0 +1,138 @@
+
+html {
+    font-size: 20px;
+
+    height: 100%;
+
+    /* color map */
+
+    --color-text: #DCDDDE;
+    --color-text-60: rgb(220 221 222 / .6);
+
+    --color-contrast: #0063b2;
+
+    --color-bg-widget: rgba(0,0,0,.5);
+    --color-bg-main: linear-gradient(#393939, #5e5e5e);
+
+    --color-shadow: rgba(0,0,0,.6);
+
+    --color-btn-hover: rgba(255,255,255,.08);
+}
+
+body {
+    min-height: 100vh;
+    margin:0;
+    padding:0 10em;
+    font-family: sans-serif;
+    background: var(--color-bg-main);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lorem {
+    color: var(--color-text);
+    margin: 2em;
+    opacity: .1;
+}
+
+/* sprite ↓ */
+
+#svg-sprite > symbol *[stroke] {
+    stroke: var(--color-text-60);
+}
+
+
+/* component ↓ */
+
+.dropdown {
+    font-size: 1rem;
+    background: var(--color-bg-widget);
+    border-radius: .6em;
+    cursor: pointer;
+    position: relative;
+    transition: all .05s linear;
+}
+
+.dropdown > .menu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: absolute;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    scale: 0.85;
+    background: var(--color-contrast);
+    transition: all .1s linear;
+    translate: 0 -1em;
+    width: 100%;
+    border-radius: 0  0 .6em .6em;
+    overflow: hidden;
+}
+
+.dropdown:hover {
+    border-radius: .6em .6em 0 0;
+    background: var(--color-contrast);
+}
+
+.dropdown:hover > .menu {
+    visibility: visible;
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+}
+
+.dropdown > .content,
+.dropdown > .menu > a {
+    display: flex;
+    align-items: center;
+
+    padding: .82em;
+    color: var(--color-text);
+    transition: .2s linear;
+}
+
+.dropdown > .content::after {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    right: 10%;
+    width: 80%;
+    height: 1px;
+    transform: scaleX(0);
+    background: var(--color-text-60);
+    transition: 0.3s;
+}
+
+.dropdown:hover > .content::after {
+    transform: scaleX(1);
+}
+
+.dropdown > .menu > a:last-child {
+    margin-bottom: .3em;
+}
+
+.dropdown > .menu > a:hover {
+    background-color: var(--color-btn-hover);
+}
+
+.dropdown > .content > svg, 
+.dropdown > .menu > a > svg {
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0 .5em 0 0;
+}
+
+.dropdown > .content > svg:last-child {
+    margin: 0 0 0 .5em;
+    transform: rotate(180deg);
+    transition: .2s linear;
+}
+
+.dropdown:hover > .content > svg:last-child {
+    transform: rotate(0deg);
+}
+

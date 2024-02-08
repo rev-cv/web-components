@@ -1,25 +1,31 @@
 
-
-
-
 html {
+    font-size: 20px;
+
     height: 100%;
     --color-text: #DCDDDE;
     --color-text-60: rgba(220, 221, 222, .6);
-    --color-shadow: rgba(0,0,0,.6)
+
+    --color-contrast: #658DC6;
+
+    --color-bg-widget: rgba(0,0,0,.5);
+    --color-bg-main: linear-gradient(#393939, #5e5e5e);
+
+    --color-shadow: rgba(0,0,0,.6);
 }
 
 body {
     margin:0;
     padding:0;
     font-family: sans-serif;
-    background: linear-gradient(#393939, #5e5e5e);
+    background: var(--color-bg-main);
 }
 
-/* component */
+/* component ↓ */
 
 .login-box {
-    font-size: 20px;
+    font-size: 1rem;
+
     position: absolute;
 
     display: flex;
@@ -32,7 +38,7 @@ body {
     width: 20em;
     padding: 2em;
 
-    background: rgba(0,0,0,.5);
+    background: var(--color-bg-widget);
     box-sizing: border-box;
     box-shadow: 0 15px 25px var(--color-shadow);
     border-radius: .5em;
@@ -77,7 +83,7 @@ body {
     font-size: .8em;
     color: var(--color-text);
     pointer-events: none;
-    transition: .5s;
+    transition: .2s;
 }
 
 .login-box > form > .line > input:focus ~ label,
@@ -93,7 +99,7 @@ body {
     padding: .5em 1em;
     border-radius: calc(.5em * 2 + .8em);
 
-    color: #b79726;
+    color: var(--color-contrast);
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
@@ -104,10 +110,9 @@ body {
 }
 
 .login-box > form > a:hover {
-    background: #f49803;
-    color: rgba(0,0,0,.5);
-    box-shadow: 0 0 .25em #f4c803,
-                0 0 .5em #bd9d0b,
-                0 0 .75em #f4e403,
-                0 0 1em #d5cf1e;
+    background: var(--color-contrast);
+    color: var(--color-bg-widget);
+    box-shadow: 0 0 .25em var(--color-contrast),
+                0 0 .75em var(--color-contrast),
+                0 0 1em var(--color-contrast);
 }
